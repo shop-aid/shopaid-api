@@ -10,9 +10,10 @@ table
       th
       th
 
-  tbody
-    - @partners.each do |partner|
-      tr
+  tbody.sortable
+    - @partners.each_with_sortable_id do |partner, sortable_id|
+
+      tr id="#{sortable_id}"
         td = image_tag partner.logo.url(:thumb)
         td = partner.name
         td = partner.percentage
