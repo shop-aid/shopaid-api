@@ -9,6 +9,7 @@ table
       th Name
       th Local
       th Favorite
+      th Tags
       th
       th
       th
@@ -22,6 +23,7 @@ table
         td = cause.name
         td = cause.local
         td = cause.favorite
+        td = cause.tags.join(", ")
         td = link_to 'Show', cause
         td = link_to 'Edit', edit_cause_path(cause)
         td = link_to 'Destroy', cause, data: { confirm: 'Are you sure?' }, method: :delete

@@ -20,6 +20,10 @@ p
   strong Logo:
   = image_tag @cause.logo.url(:medium)
 
+p
+  strong Tags:
+  = @cause.tags.join(", ")
+
 => link_to 'Edit', edit_cause_path(@cause)
 '|
 =< link_to 'Back', causes_path
