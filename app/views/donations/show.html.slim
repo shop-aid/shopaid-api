@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @donation.user
+p
+  strong Cause:
+  = @donation.cause
+p
+  strong Partner:
+  = @donation.partner
+
+=> link_to 'Edit', edit_donation_path(@donation)
+'|
+=< link_to 'Back', donations_path

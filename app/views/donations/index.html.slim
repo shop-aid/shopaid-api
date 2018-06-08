@@ -1,0 +1,25 @@
+h1 Listing donations
+
+table
+  thead
+    tr
+      th User
+      th Cause
+      th Partner
+      th
+      th
+      th
+
+  tbody
+    - @donations.each do |donation|
+      tr
+        td = donation.user
+        td = donation.cause
+        td = donation.partner
+        td = link_to 'Show', donation
+        td = link_to 'Edit', edit_donation_path(donation)
+        td = link_to 'Destroy', donation, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Donation', new_donation_path

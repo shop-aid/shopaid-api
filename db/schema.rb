@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608191911) do
+ActiveRecord::Schema.define(version: 20180608192700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 20180608191911) do
     t.string   "poster_content_type"
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cause_id"
+    t.integer  "partner_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "USD", null: false
+    t.index ["cause_id"], name: "index_donations_on_cause_id", using: :btree
+    t.index ["partner_id"], name: "index_donations_on_partner_id", using: :btree
+    t.index ["user_id"], name: "index_donations_on_user_id", using: :btree
   end
 
   create_table "partners", force: :cascade do |t|
@@ -99,4 +112,7 @@ ActiveRecord::Schema.define(version: 20180608191911) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "donations", "causes"
+  add_foreign_key "donations", "partners"
+  add_foreign_key "donations", "users"
 end

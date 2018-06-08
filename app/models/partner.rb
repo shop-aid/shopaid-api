@@ -6,4 +6,6 @@ class Partner < ApplicationRecord
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 
   set_sortable :sort
+
+  has_many :donations
 end
