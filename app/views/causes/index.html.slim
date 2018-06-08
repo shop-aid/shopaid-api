@@ -14,9 +14,10 @@ table
       th
       th
 
-  tbody
-    - @causes.each do |cause|
-      tr
+  tbody.sortable
+    - @causes.each_with_sortable_id do |cause, sortable_id|
+
+      tr id="#{sortable_id}"
         td = image_tag cause.logo.url(:thumb)
         td = cause.category
         td = cause.description

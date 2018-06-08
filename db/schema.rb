@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608180044) do
+ActiveRecord::Schema.define(version: 20180608182041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180608180044) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "category"
+    t.integer  "sort"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180608180044) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.integer  "sort"
   end
 
   create_table "taggings", force: :cascade do |t|

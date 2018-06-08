@@ -4,7 +4,7 @@ module Api
       layout false
 
       def index
-        @causes = Cause.all
+        @causes = Cause.order(:sort).all
       end
     end
   end

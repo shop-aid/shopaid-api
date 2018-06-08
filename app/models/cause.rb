@@ -5,4 +5,7 @@ class Cause < ApplicationRecord
 
   # Tags
   acts_as_taggable
+
+  include RailsSortable::Model
+  set_sortable :sort
 end

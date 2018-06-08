@@ -4,7 +4,7 @@ class CausesController < ApplicationController
   # GET /causes
   # GET /causes.json
   def index
-    @causes = Cause.all
+    @causes = Cause.order(:sort).all
   end
 
   # GET /causes/1

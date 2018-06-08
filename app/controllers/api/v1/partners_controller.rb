@@ -4,7 +4,7 @@ module Api
       layout false
 
       def index
-        @partners = Partner.all
+        @partners = Partner.order(:sort).all
       end
     end
   end
