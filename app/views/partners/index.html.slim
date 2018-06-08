@@ -3,6 +3,7 @@ h1 Listing partners
 table
   thead
     tr
+      th Logo
       th Name
       th Percentage
       th
@@ -12,6 +13,7 @@ table
   tbody
     - @partners.each do |partner|
       tr
+        td = image_tag partner.logo.url(:thumb)
         td = partner.name
         td = partner.percentage
         td = link_to 'Show', partner

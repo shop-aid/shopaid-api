@@ -6,6 +6,9 @@ p
 p
   strong Percentage:
   = @partner.percentage
+p
+  strong Logo:
+  = image_tag @partner.logo.url(:medium)
 
 => link_to 'Edit', edit_partner_path(@partner)
 '|

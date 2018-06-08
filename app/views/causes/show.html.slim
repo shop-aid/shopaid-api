@@ -15,11 +15,9 @@ p
 p
   strong Favorite:
   = @cause.favorite
-
 p
   strong Logo:
   = image_tag @cause.logo.url(:medium)
-
 p
   strong Tags:
   = @cause.tags.join(", ")
