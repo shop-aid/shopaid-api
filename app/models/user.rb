@@ -11,4 +11,14 @@ class User < ApplicationRecord
     total = self.donations.inject(0) { |sum, donation| sum + donation.price_cents }
     humanized_money_with_symbol(Money.new(total, 'EUR'))
   end
+
+  def partner_breakdown
+    Partner.all.map do |partner|
+      total = self.donations.where(partner: partner).inject(0) { |sum, donation| sum + donation.price_cents }
+      {
+        name: partner.name,
+        amount: humanized_money_with_symbol(Money.new(total, 'EUR'))
+      }
+    end
+  end
 end
