@@ -3,6 +3,7 @@ h1 Listing providers
 table
   thead
     tr
+      th Logo
       th Name
       th Implemented
       th
@@ -12,6 +13,7 @@ table
   tbody
     - @providers.each do |provider|
       tr
+        td = image_tag provider.logo.url(:thumb)
         td = provider.name
         td = provider.implemented
         td = link_to 'Show', provider

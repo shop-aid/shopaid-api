@@ -6,6 +6,9 @@ p
 p
   strong Implemented:
   = @provider.implemented
+p
+  strong Logo:
+  = image_tag @provider.logo.url(:medium)
 
 => link_to 'Edit', edit_provider_path(@provider)
 '|
