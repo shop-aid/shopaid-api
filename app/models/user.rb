@@ -1,3 +1,5 @@
+include MoneyRails::ActionViewExtension
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -6,6 +8,7 @@ class User < ApplicationRecord
   has_many :donations
 
   def charity_balance
-    0
+    total = self.donations.inject(0) { |sum, donation| sum + donation.price_cents }
+    humanized_money_with_symbol(Money.new(total, 'EUR'))
   end
 end
