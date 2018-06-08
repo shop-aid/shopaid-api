@@ -69,6 +69,6 @@ class CausesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:cause).permit(:description, :name, :local, :favorite, :logo, :tag_list)
+      params.require(:cause).permit(:description, :name, :local, :favorite, :logo, :tag_list, :category)
     end
 end
