@@ -3,6 +3,7 @@ h1 Listing causes
 table
   thead
     tr
+      th Logo
       th Description
       th Name
       th Local
@@ -14,6 +15,7 @@ table
   tbody
     - @causes.each do |cause|
       tr
+        td = image_tag cause.logo.url(:thumb)
         td = cause.description
         td = cause.name
         td = cause.local
