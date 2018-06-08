@@ -4,6 +4,7 @@ table
   thead
     tr
       th Logo
+      th Poster
       th Category
       th Description
       th Name
@@ -19,6 +20,7 @@ table
 
       tr id="#{sortable_id}"
         td = image_tag cause.logo.url(:thumb)
+        td = image_tag cause.poster.url(:thumb)
         td = cause.category
         td = cause.description
         td = cause.name

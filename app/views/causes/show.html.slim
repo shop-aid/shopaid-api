@@ -19,6 +19,9 @@ p
   strong Logo:
   = image_tag @cause.logo.url(:medium)
 p
+  strong Poster:
+  = image_tag @cause.poster.url(:medium)
+p
   strong Tags:
   = @cause.tags.join(", ")
 

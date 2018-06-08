@@ -25,6 +25,9 @@
     = f.label :logo
     = f.file_field :logo
   .field
+    = f.label :poster
+    = f.file_field :poster
+  .field
     = f.label :tag_list
     = f.text_field :tag_list, value: f.object.tag_list.to_s
   .actions = f.submit
