@@ -21,4 +21,14 @@ class User < ApplicationRecord
       }
     end
   end
+
+  def cause_breakdown
+    Cause.all.map do |cause|
+      total = self.donations.where(cause: cause).inject(0) { |sum, donation| sum + donation.price_cents }
+      {
+        name: cause.name,
+        amount: humanized_money_with_symbol(Money.new(total, 'EUR'))
+      }
+    end
+  end
 end
