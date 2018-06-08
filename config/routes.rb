@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :providers
   resources :partners
   resources :causes
   namespace :api, constraints: { format: 'json' } do
