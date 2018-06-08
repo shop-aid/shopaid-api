@@ -13,6 +13,10 @@ p
   strong Favorite:
   = @cause.favorite
 
+p
+  strong Logo:
+  = image_tag @cause.logo.url
+
 => link_to 'Edit', edit_cause_path(@cause)
 '|
 =< link_to 'Back', causes_path
