@@ -16,9 +16,12 @@
 //= require jquery-ui/widgets/sortable
 //= require turbolinks
 //= require rails_sortable
+//= require materialize
 //= require_tree .
 
 
 $(function() {
   $('.sortable').railsSortable();
+  $('select').material_select();
+
 });
