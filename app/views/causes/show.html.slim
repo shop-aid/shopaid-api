@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Description:
+  = @cause.description
+p
+  strong Name:
+  = @cause.name
+p
+  strong Local:
+  = @cause.local
+p
+  strong Favorite:
+  = @cause.favorite
+
+=> link_to 'Edit', edit_cause_path(@cause)
+'|
+=< link_to 'Back', causes_path

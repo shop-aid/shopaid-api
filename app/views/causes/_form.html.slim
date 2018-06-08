@@ -1,0 +1,21 @@
+= form_for @cause do |f|
+  - if @cause.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@cause.errors.count, "error")} prohibited this cause from being saved:"
+      ul
+        - @cause.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :local
+    = f.check_box :local
+  .field
+    = f.label :favorite
+    = f.check_box :favorite
+  .actions = f.submit

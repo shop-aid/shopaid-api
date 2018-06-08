@@ -1,0 +1,27 @@
+h1 Listing causes
+
+table
+  thead
+    tr
+      th Description
+      th Name
+      th Local
+      th Favorite
+      th
+      th
+      th
+
+  tbody
+    - @causes.each do |cause|
+      tr
+        td = cause.description
+        td = cause.name
+        td = cause.local
+        td = cause.favorite
+        td = link_to 'Show', cause
+        td = link_to 'Edit', edit_cause_path(cause)
+        td = link_to 'Destroy', cause, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Cause', new_cause_path
