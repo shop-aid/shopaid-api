@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :causes, only: :index
       resources :partners, only: :index
       resources :providers, only: :index
+      resources :users, only: :show
     end
   end
 
