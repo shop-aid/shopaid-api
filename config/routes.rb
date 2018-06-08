@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       resources :causes, only: :index
     end
   end
+
+  root 'causes#index'
 end
