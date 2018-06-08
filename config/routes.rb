@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :causes, only: :index
       resources :partners, only: :index
+      resources :providers, only: :index
     end
   end
 
