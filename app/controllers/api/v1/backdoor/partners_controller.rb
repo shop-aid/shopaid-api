@@ -8,10 +8,14 @@ module Api
 
         def record
           user = User.first
-          cause = Cause.first
+          causes = user.causes
           partner = Partner.first
+          percentage = partner.percentage
           price = /€ (.*)/.match(params[:price])[1].to_f
-          Donation.create(user: user, cause: cause, partner: partner, price: price * 0.1)
+          donation = price * percentage
+          causes.each do |cause|
+            Donation.create(user: user, cause: cause, partner: partner, price: donation.to_f / causes.count)
+          end
         end
       end
     end
