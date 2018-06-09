@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def cause_breakdown
-    Cause.all.map do |cause|
+    causes.map do |cause|
       grand_total = self.donations.inject(0) { |sum, donation| sum + donation.price_cents }
       total = self.donations.where(cause: cause).inject(0) { |sum, donation| sum + donation.price_cents }
       {
