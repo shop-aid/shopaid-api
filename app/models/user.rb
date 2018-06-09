@@ -24,10 +24,12 @@ class User < ApplicationRecord
 
   def cause_breakdown
     Cause.all.map do |cause|
+      grand_total = self.donations.inject(0) { |sum, donation| sum + donation.price_cents }
       total = self.donations.where(cause: cause).inject(0) { |sum, donation| sum + donation.price_cents }
       {
         name: cause.name,
-        amount: humanized_money_with_symbol(Money.new(total, 'EUR'))
+        amount: humanized_money_with_symbol(Money.new(total, 'EUR')),
+        percentage: grand_total == 0 ? 0 : (total / grand_total).to_i
       }
     end
   end
