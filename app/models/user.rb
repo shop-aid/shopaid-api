@@ -27,7 +27,7 @@ class User < ApplicationRecord
         amount: humanized_money_with_symbol(Money.new(total, 'EUR')),
         percentage: grand_total.to_i == 0 ? 0 : ((total.to_f / grand_total.to_f) * 100).to_i
       }
-    end.compact.sort_by { |hsh| hsh[:percentage] }
+    end.compact.sort_by { |hsh| hsh[:percentage] }.reverse
   end
 
   def cause_breakdown
