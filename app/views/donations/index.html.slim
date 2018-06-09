@@ -6,6 +6,7 @@ table
       th User
       th Cause
       th Partner
+      th Price
       th
       th
       th
@@ -16,6 +17,7 @@ table
         td = donation.user
         td = donation.cause
         td = donation.partner
+        td = humanized_money_with_symbol(donation.price)
         td = link_to 'Show', donation
         td = link_to 'Edit', edit_donation_path(donation)
         td = link_to 'Destroy', donation, data: { confirm: 'Are you sure?' }, method: :delete

@@ -15,4 +15,7 @@
   .field
     = f.label :partner
     = f.collection_select(:partner_id, Partner.all, :id, :name)
+  .field
+    = f.label :price
+    = f.text_field :price
   .actions = f.submit
