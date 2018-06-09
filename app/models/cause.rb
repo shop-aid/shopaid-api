@@ -13,4 +13,7 @@ class Cause < ApplicationRecord
   set_sortable :sort
 
   has_many :donations
+
+  has_many :causes, through: :targets
+  has_many :targets
 end

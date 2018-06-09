@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :donations
+  has_many :causes, through: :targets
+  has_many :targets
 
   def charity_balance
     total = self.donations.inject(0) { |sum, donation| sum + donation.price_cents }
