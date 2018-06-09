@@ -14,25 +14,29 @@ class User < ApplicationRecord
     humanized_money_with_symbol(Money.new(total, 'EUR'))
   end
 
+  def grand_total
+    donations.inject(0) { |sum, donation| sum + donation.price_cents }
+  end
+
   def partner_breakdown
     Partner.all.map do |partner|
       total = self.donations.where(partner: partner).inject(0) { |sum, donation| sum + donation.price_cents }
       {
         name: partner.name,
-        amount: humanized_money_with_symbol(Money.new(total, 'EUR'))
+        amount: humanized_money_with_symbol(Money.new(total, 'EUR')),
+        percentage: grand_total.to_i == 0 ? 0 : ((total.to_f / grand_total.to_f) * 100).to_i
       }
     end
   end
 
   def cause_breakdown
     causes.map do |cause|
-      grand_total = self.donations.inject(0) { |sum, donation| sum + donation.price_cents }
       total = self.donations.where(cause: cause).inject(0) { |sum, donation| sum + donation.price_cents }
       {
         id: cause.id,
         name: cause.name,
         amount: humanized_money_with_symbol(Money.new(total, 'EUR')),
-        percentage: grand_total.to_i == 0 ? 0 : (total.to_f / grand_total.to_f).to_i
+        percentage: grand_total.to_i == 0 ? 0 : ((total.to_f / grand_total.to_f) * 100).to_i
       }
     end
   end
