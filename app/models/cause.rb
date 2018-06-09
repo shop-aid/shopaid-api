@@ -14,6 +14,6 @@ class Cause < ApplicationRecord
 
   has_many :donations
 
-  has_many :causes, through: :targets
+  has_many :partners, through: :targets
   has_many :targets
 end
