@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @target.user
+p
+  strong Cause:
+  = @target.cause
+
+=> link_to 'Edit', edit_target_path(@target)
+'|
+=< link_to 'Back', targets_path

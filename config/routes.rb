@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :targets
   resources :transactions
   resources :donations
   devise_for :users
