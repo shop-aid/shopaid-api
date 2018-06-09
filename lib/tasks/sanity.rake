@@ -35,7 +35,7 @@ namespace :sanity do
 
     puts resp_json["transactions"].each { |transaction|
       details = transaction["details"]
-      puts details
+      Transaction.delete_all
       Transaction.create(
         description: details["description"],
         new_balance: details["new_balance"]["amount"].to_f,
