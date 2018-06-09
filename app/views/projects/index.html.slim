@@ -11,6 +11,7 @@ table
       th Local
       th Favorite
       th Tags
+      th Collected
       th
       th
       th
@@ -27,6 +28,7 @@ table
         td = project.local
         td = project.favorite
         td = project.tags.join(", ")
+        td = humanized_money_with_symbol(project.collected)
         td = link_to 'Show', project
         td = link_to 'Edit', edit_project_path(project)
         td = link_to 'Destroy', project, data: { confirm: 'Are you sure?' }, method: :delete

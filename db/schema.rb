@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609114447) do
+ActiveRecord::Schema.define(version: 20180609132642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,10 @@ ActiveRecord::Schema.define(version: 20180609114447) do
     t.datetime "poster_updated_at"
     t.integer  "sort"
     t.string   "category"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "collected_cents",     default: 0,     null: false
+    t.string   "collected_currency",  default: "EUR", null: false
   end
 
   create_table "providers", force: :cascade do |t|

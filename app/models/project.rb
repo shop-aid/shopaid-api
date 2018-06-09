@@ -11,4 +11,6 @@ class Project < ApplicationRecord
 
   include RailsSortable::Model
   set_sortable :sort
+
+  monetize :collected_cents
 end

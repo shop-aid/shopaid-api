@@ -69,6 +69,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:project).permit(:description, :name, :local, :favorite, :logo, :tag_list, :category, :poster)
+      params.require(:project).permit(:description, :name, :local, :favorite, :logo, :tag_list, :category, :poster, :collected)
     end
 end
