@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Description:
+  = @project.description
+p
+  strong Category:
+  = @project.category
+p
+  strong Name:
+  = @project.name
+p
+  strong Local:
+  = @project.local
+p
+  strong Favorite:
+  = @project.favorite
+p
+  strong Logo:
+  = image_tag @project.logo.url(:medium)
+p
+  strong Poster:
+  = image_tag @project.poster.url(:medium)
+p
+  strong Tags:
+  = @project.tags.join(", ")
+
+=> link_to 'Edit', edit_project_path(@project)
+'|
+=< link_to 'Back', projects_path
