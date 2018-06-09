@@ -1,3 +1,3 @@
 json.name provider.name
 json.implemented provider.implemented
-# json.logo partner.logo.url(:medium)
+json.logo provider.logo.url(:medium)
