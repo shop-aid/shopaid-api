@@ -21,12 +21,13 @@ class User < ApplicationRecord
   def partner_breakdown
     Partner.all.map do |partner|
       total = self.donations.where(partner: partner).inject(0) { |sum, donation| sum + donation.price_cents }
+      next if total == 0
       {
         name: partner.name,
         amount: humanized_money_with_symbol(Money.new(total, 'EUR')),
         percentage: grand_total.to_i == 0 ? 0 : ((total.to_f / grand_total.to_f) * 100).to_i
       }
-    end
+    end.compact.sort_by { |hsh| hsh["amount"] }
   end
 
   def cause_breakdown
