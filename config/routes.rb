@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :projects, only: :index
       resources :partners, only: :index
       resources :providers, only: :index
+      resources :targets, only: :index
       resources :users, only: :show
 
       namespace :backdoor do
