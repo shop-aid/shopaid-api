@@ -14,9 +14,9 @@ table
   tbody
     - @donations.each do |donation|
       tr
-        td = donation.user
-        td = donation.cause
-        td = donation.partner
+        td = donation.user.email
+        td = donation.cause.name
+        td = donation.partner.name
         td = humanized_money_with_symbol(donation.price)
         td = link_to 'Show', donation
         td = link_to 'Edit', edit_donation_path(donation)
