@@ -33,9 +33,9 @@ namespace :sanity do
     response = http.request(request)
     resp_json = JSON.parse(response.body)
 
-    puts resp_json["transactions"].each { |transaction|
+    Transaction.delete_all
+    resp_json["transactions"].each { |transaction|
       details = transaction["details"]
-      Transaction.delete_all
       Transaction.create(
         description: details["description"],
         new_balance: details["new_balance"]["amount"].to_f,
