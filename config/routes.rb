@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       resources :partners, only: :index
       resources :providers, only: :index
       resources :users, only: :show
+
+      namespace :backdoor do
+        post '/record', to: 'partners#record'
+      end
     end
   end
 
