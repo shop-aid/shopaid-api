@@ -30,7 +30,7 @@ class User < ApplicationRecord
         id: cause.id,
         name: cause.name,
         amount: humanized_money_with_symbol(Money.new(total, 'EUR')),
-        percentage: grand_total == 0 ? 0 : (total / grand_total).to_i
+        percentage: grand_total == 0 ? 0 : (total.to_f / grand_total.to_f).to_i
       }
     end
   end
