@@ -301,7 +301,7 @@ namespace :sanity do
       causes = user.causes
       partner = Partner.all.sample
       percentage = partner.percentage
-      price = /€ (.*)/.match(params[:price])[1].to_f
+      price = rand(900) + 50
       donation = price * percentage
       causes.each do |cause|
         Donation.create(user: user, cause: cause, partner: partner, price: donation.to_f / causes.count)
