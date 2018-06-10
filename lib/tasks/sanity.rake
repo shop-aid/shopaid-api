@@ -293,4 +293,19 @@ namespace :sanity do
     resp_json = JSON.parse(response.body)
     puts resp_json
   end
+
+  desc "Create counterparty"
+  task data: :environment do
+    3.times do
+      user = User.first
+      causes = user.causes
+      partner = Partner.all.sample
+      percentage = partner.percentage
+      price = /€ (.*)/.match(params[:price])[1].to_f
+      donation = price * percentage
+      causes.each do |cause|
+        Donation.create(user: user, cause: cause, partner: partner, price: donation.to_f / causes.count)
+      end
+    end
+  end
 end
