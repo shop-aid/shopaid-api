@@ -294,7 +294,7 @@ namespace :sanity do
     puts resp_json
   end
 
-  desc "Create counterparty"
+  desc "Seed donations"
   task data: :environment do
     3.times do
       user = User.first
@@ -307,5 +307,10 @@ namespace :sanity do
         Donation.create(user: user, cause: cause, partner: partner, price: donation.to_f / causes.count)
       end
     end
+  end
+
+  desc "Clean donations"
+  task clean: :environment do
+    Donation.delete_all
   end
 end
